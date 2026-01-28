@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cash Denomination Calculator</title>
+
+  <!-- Mobile friendly -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- jsPDF AutoTable -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+  <!-- html2canvas (JPEG export) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container" id="printArea">
+  <h2>Denomination Calculator</h2>
+
+  <p style="text-align:center;">
+    Date: <span id="todayDate"></span>
+  </p>
+
+  <!-- NOTES -->
+  <h3>Notes</h3>
+  <table>
+    <tr>
+      <th>Denomination (Rs.)</th>
+      <th>No. of Notes</th>
+      <th>Amount (Rs.)</th>
+    </tr>
+    <tr><td>500</td><td><input type="number" value="0" oninput="calculate()"></td><td class="amount">0</td></tr>
+    <tr><td>200</td><td><input type="number" value="0" oninput="calculate()"></td><td class="amount">0</td></tr>
+    <tr><td>100</td><td><input type="number" value="0" oninput="calculate()"></td><td class="amount">0</td></tr>
+    <tr><td>50</td><td><input type="number" value="0" oninput="calculate()"></td><td class="amount">0</td></tr>
+    <tr><td>20</td><td><input type="number" value="0" oninput="calculate()"></td><td class="amount">0</td></tr>
+    <tr><td>10</td><td><input type="number" value="0" oninput="calculate()"></td><td class="amount">0</td></tr>
+  </table>
+
+  <br>
+
+  <!-- COINS -->
+  <h3>Coins</h3>
+  <table>
+    <tr>
+      <th>Denomination (Rs.)</th>
+      <th>No. of Coins</th>
+      <th>Amount (Rs.)</th>
+    </tr>
+    <tr><td>5</td><td><input type="number" value="0" oninput="calculate()"></td><td class="amount">0</td></tr>
+    <tr><td>2</td><td><input type="number" value="0" oninput="calculate()"></td><td class="amount">0</td></tr>
+    <tr><td>1</td><td><input type="number" value="0" oninput="calculate()"></td><td class="amount">0</td></tr>
+  </table>
+
+  <h3>Total Amount: Rs. <span id="total">0</span></h3>
+</div>
+
+<!-- Buttons -->
+<button onclick="exportPDF()">Export to PDF</button>
+<button onclick="exportJPEG()">Export as JPEG</button>
+<button onclick="resetAll()">Reset / Clear</button>
+
+<script src="script.js"></script>
+</body>
+</html>
